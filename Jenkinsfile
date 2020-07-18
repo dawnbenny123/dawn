@@ -2,13 +2,12 @@ pipeline {
       agent any
       stages {
            stage ('BUILD'){
-              steps {
-                   when {
+              when {
                           expression {
                                 BRANCH_NAME=='test'
                           }
-                    }  
-                    
+                    }
+                 steps {
                     echo "BUILDING"
                     echo "BUILD SUCCESSFULL "
                  }
