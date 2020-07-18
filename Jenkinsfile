@@ -1,11 +1,10 @@
-def BRANCH_NAME = getCurrentBranch()
 pipeline {
       agent any
       stages {
            stage ('BUILD'){
               when {
                           expression {
-                                ${env.BRANCH_NAME}=='test'
+                                env.GIT_URL=='https://github.com/dawnbenny123/dawn.git'
                           }
                     }
                  steps {
