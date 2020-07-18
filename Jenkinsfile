@@ -1,10 +1,11 @@
+def BRANCH_NAME = getCurrentBranch()
 pipeline {
       agent any
       stages {
            stage ('BUILD'){
               when {
                           expression {
-                                env.TAG_NAME=='test'
+                                ${env.BRANCH_NAME}=='test'
                           }
                     }
                  steps {
