@@ -14,11 +14,11 @@ pipeline {
              }
            stage ('TEST'){
                  steps {
-                       if {
+                       if (
                           expression {
                                 BRANCH_NAME=='dev'  || GIT_URL== 'https://github.com/dawnbenny123/dawn.git'
                           }
-                       }      
+                       )      
                     echo "TESTING"
                  }
             }
