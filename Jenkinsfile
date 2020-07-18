@@ -4,7 +4,7 @@ pipeline {
            stage ('BUILD'){
               steps {
                     echo "BUILDING"
-                    echo "BUILD "
+                    echo "BUILD SUCCESSFULL "
                  }
              }
            stage ('TEST'){
