@@ -4,7 +4,7 @@ pipeline {
            stage ('BUILD'){
               when {
                           expression {
-                                env.BRANCH_NAME=='*/test'
+                                env.TAG_NAME=='test'
                           }
                     }
                  steps {
