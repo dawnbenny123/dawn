@@ -14,14 +14,13 @@ pipeline {
              }
            stage ('TEST'){
                  steps {
-                       if (
-                          expression {
-                                BRANCH_NAME=='dev'  || GIT_URL== 'https://github.com/dawnbenny123/dawn.git'
-                          }
-                       )      
-                    echo "TESTING"
+                       script {
+                       if ( BRANCH_NAME=='dev'  || GIT_URL== 'https://github.com/dawnbenny123/dawn.git' ) {
+                             
+                          echo "TESTING"
                  }
             }
+                 }
            stage ('DEPLOY'){
                   steps {
                     echo "DEPLOYING"
