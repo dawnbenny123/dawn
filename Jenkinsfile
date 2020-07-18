@@ -21,6 +21,7 @@ pipeline {
                  }
             }
                  }
+           }
            stage ('DEPLOY'){
                   steps {
                     echo "DEPLOYING"
