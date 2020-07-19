@@ -1,15 +1,18 @@
 pipeline {
       agent any
+      environment {
+            VERSION ='1.1.0'
+            WORKSPACE = '/home/ubuntu/stormpath-spring-boot-war-example-master'
+           }
+      tools {
+             maven 'maven'
+         }
       stages {
            stage ('BUILD'){
-              when {
-                          expression {
-                                env.GIT_URL=='https://github.com/dawnbenny123/dawn.git'
-                          }
-                    }
-                 steps {
                     echo "BUILDING"
-                    echo "BUILD SUCCESSFULL "
+                    cd "${WORKSPACE}"
+                    "${maven}" clean install
+                    
                  }
              }
            stage ('TEST'){
