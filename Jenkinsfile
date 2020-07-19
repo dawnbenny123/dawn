@@ -9,10 +9,11 @@ pipeline {
          }
       stages {
            stage ('BUILD'){
-                    echo "BUILDING"
             steps {
+                    echo "BUILDING"
                     sh "${maven} clean install"
                    } 
+                
                  }
              }
            stage ('TEST'){
