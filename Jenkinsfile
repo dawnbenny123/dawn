@@ -5,8 +5,8 @@ pipeline {
             WORKSPACE = '/home/ubuntu/stormpath-spring-boot-war-example-master'
            }
       tools {
-            maven "mymvn"
-      }
+         maven 'mymvn'
+         }
       stages {
            stage ('BUILD'){
             steps {
