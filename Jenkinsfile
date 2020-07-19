@@ -12,7 +12,7 @@ pipeline {
                     echo "BUILDING"
             steps {
                     cd "${WORKSPACE}"
-                    "${maven}" clean install
+                    "${maven} clean install"
                    } 
                  }
              }
