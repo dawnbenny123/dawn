@@ -8,8 +8,9 @@ pipeline {
       stages {
            stage ('BUILD'){
             steps {
+                    cd "${WORKSPACE}"
                     echo "BUILDING"
-                    sh "mvn clean install"
+                    mvn clean install
                    } 
                 
                  }
