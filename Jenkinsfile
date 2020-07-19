@@ -6,7 +6,7 @@ pipeline {
            }
       tools {
             maven 'myMVN'
-    
+      }
       stages {
            stage ('BUILD'){
             steps {
