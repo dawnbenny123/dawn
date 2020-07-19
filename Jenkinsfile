@@ -2,7 +2,7 @@ pipeline {
       agent any
       environment {
             VERSION ='1.1.0'
-            WORKSPACE = '/home/ubuntu/stormpath-spring-boot-war-example-master'
+            WORKSPACE = 'cd /home/ubuntu/stormpath-spring-boot-war-example-master'
            }
       tools {
          maven 'mymvn'
@@ -10,7 +10,7 @@ pipeline {
       stages {
            stage ('BUILD'){
             steps {
-                    cd env.$WORKSPACE 
+                    sh env.$WORKSPACE 
                     echo "BUILDING"
                     sh "mvn clean install"
                    } 
