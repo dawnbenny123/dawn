@@ -5,14 +5,13 @@ pipeline {
             WORKSPACE = '/home/ubuntu/stormpath-spring-boot-war-example-master'
            }
       tools {
-             maven 'maven'
+             maven 'myMVN'
          }
       stages {
            stage ('BUILD'){
                     echo "BUILDING"
             steps {
-                    cd "${WORKSPACE}"
-                    "${maven} clean install"
+                    sh "${maven} clean install"
                    } 
                  }
              }
