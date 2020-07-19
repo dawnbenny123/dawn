@@ -10,9 +10,10 @@ pipeline {
       stages {
            stage ('BUILD'){
                     echo "BUILDING"
+            steps {
                     cd "${WORKSPACE}"
                     "${maven}" clean install
-                    
+                   } 
                  }
              }
            stage ('TEST'){
