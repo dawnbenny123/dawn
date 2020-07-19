@@ -10,7 +10,7 @@ pipeline {
       stages {
            stage ('BUILD'){
             steps {
-                    $WORKSPACE 
+                  ${WORKSPACE} 
                     echo "BUILDING"
                     sh "mvn clean install"
                    } 
