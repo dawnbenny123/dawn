@@ -15,7 +15,7 @@ pipeline {
                     echo "BUILDING"
                     sh "mvn clean install"
                    } 
-                
+            }
                  }
              
            stage ('TEST'){
