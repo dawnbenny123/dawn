@@ -1,4 +1,5 @@
 FROM ubuntu
+RUN mkdir -p /opt/deployables
 ENV $NGX_PATH /opt/deployables
 COPY nginx-1.16.1     $NGX_PATH/nginx
 COPY pcre       $NGX_PATH/pcre
