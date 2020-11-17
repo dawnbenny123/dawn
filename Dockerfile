@@ -1,8 +1,8 @@
 FROM ubuntu
 ENV $NGX_PATH /opt/deployables
 COPY nginx-1.16.1     $NGX_PATH/nginx
-COPY         $NGX_PATH/pcre
-COPY         $NGX_PATH/openssl
+COPY pcre       $NGX_PATH/pcre
+COPY openssl        $NGX_PATH/openssl
 WORKDIR $NGX_PATH/nginx
 RUN apt-get install build-essential -y
 RUN mkdir -p /usr/local/nginx
