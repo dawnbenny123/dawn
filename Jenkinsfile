@@ -3,13 +3,13 @@ pipeline {
   stages {
     stage('BUZZ BUILD') {
       steps {
-        sh './jenkins/build.sh'
+        sh '/home/ec2-user/python/build.sh'
       }
     }
 
     stage('BUZZ TEST') {
       steps {
-        sh './jenkins/test-all.sh'
+        sh '/home/ec2-user/python/test-all.sh'
       }
     }
 
