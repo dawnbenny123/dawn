@@ -4,7 +4,10 @@ pipeline {
     stage('BUZZ BUILD') {
       steps {
         sh '/home/ec2-user/python/build.sh'
-        archiveArtifacts(artifacts: '/home/ec2-user/python/stormpath-spring-boot-war-example-master/target **/*.war', fingerprint: true)
+        dir(path: '/home/ec2-user/python/stormpath-spring-boot-war-example-master/target') {
+          archiveArtifacts(artifacts: '**/*.war', fingerprint: true)
+        }
+
       }
     }
 
