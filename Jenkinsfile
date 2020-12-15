@@ -12,9 +12,21 @@ pipeline {
     }
 
     stage('Buzz Test') {
-      steps {
-        dir(path: '/home/ec2-user/my-app/target/surefire-reports') {
-          junit '**/*.xml'
+      parallel {
+        stage('Testing A') {
+          steps {
+            dir(path: '/home/ec2-user/my-app/target/surefire-reports') {
+              junit '**/*.xml'
+            }
+
+          }
+        }
+
+        stage('Testing B') {
+          steps {
+            sh '''sleep 10
+echo done.'''
+          }
         }
 
       }
