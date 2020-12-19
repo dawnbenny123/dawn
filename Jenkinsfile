@@ -12,9 +12,45 @@ pipeline {
     }
 
     stage('Fluffy Test') {
-      steps {
-        dir(path: '/home/ec2-user/my-app/target/') {
-          junit 'surefire-reports/**/*.xml'
+      parallel {
+        stage('Fluffy Test') {
+          steps {
+            dir(path: '/home/ec2-user/my-app/target/') {
+              junit 'surefire-reports/**/*.xml'
+            }
+
+          }
+        }
+
+        stage('Backend') {
+          steps {
+            echo 'HAI DAWN'
+            dir(path: '/home/ec2-user/my-app/target') {
+              archiveArtifacts '**/*.jar'
+            }
+
+          }
+        }
+
+        stage('Frontend') {
+          steps {
+            echo 'HAI BUDDY'
+          }
+        }
+
+        stage('Performance') {
+          steps {
+            dir(path: '/home/ec2-user/my-app/target/') {
+              junit 'surefire-reports/**/*.xml'
+            }
+
+          }
+        }
+
+        stage('Static') {
+          steps {
+            echo 'BYE'
+          }
         }
 
       }
