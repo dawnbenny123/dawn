@@ -1,39 +1,26 @@
 pipeline {
   agent any
   stages {
-    stage('BUZZ BUILD') {
+    stage('Fluffy Build') {
       steps {
-        sh '/home/ec2-user/python/build.sh'
-        dir(path: '/home/ec2-user/my-app/target') {
-          archiveArtifacts(artifacts: '**/*.jar', fingerprint: true)
+        sh 'sh /home/ec2-user/python/build.sh'
+      }
+    }
+
+    stage('Fluffy Test') {
+      steps {
+        dir(path: '/home/ec2-user/my-app/target/') {
+          junit 'surefire-reports/**/*.xml'
         }
 
       }
     }
 
-    stage('Buzz Test') {
-      parallel {
-        stage('Testing A') {
-          steps {
-            dir(path: '/home/ec2-user/my-app/target/surefire-reports') {
-              junit '**/*.xml'
-            }
-
-          }
-        }
-
-        stage('Testing B') {
-          steps {
-            sh '''sleep 10
-echo done.'''
-          }
-        }
-
+    stage('Fluffy Deploy') {
+      steps {
+        sh 'sh /home/ec2-user/python/deploy.sh'
       }
     }
 
-  }
-  environment {
-    BUZZ_NAME = 'Worker Bee'
   }
 }
