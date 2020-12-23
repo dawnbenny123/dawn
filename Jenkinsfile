@@ -1,9 +1,6 @@
 pipeline {
   agent {
-    dockerfile {
-      filename '/home/ec2-user/Dockerfile'
-    }
-
+    label 'bzzzmaven'
   }
   stages {
     stage('Fluffy Build') {
