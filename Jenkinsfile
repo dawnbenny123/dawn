@@ -2,7 +2,6 @@ pipeline {
   agent {
     dockerfile {
       filename 'Dockerfile'
-      dir '/home/ec2-user'
     }
 
   }
