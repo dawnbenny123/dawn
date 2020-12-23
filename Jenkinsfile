@@ -3,7 +3,6 @@ pipeline {
     dockerfile {
       filename 'Dockerfile'
       dir '/home/ec2-user'
-      label 'nginx:1.0'
     }
 
   }
