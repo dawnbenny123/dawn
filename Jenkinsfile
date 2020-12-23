@@ -1,5 +1,12 @@
 pipeline {
-  agent any
+  agent {
+    dockerfile {
+      filename 'Dockerfile'
+      dir '/home/ec2-user'
+      label 'nginx:1.0'
+    }
+
+  }
   stages {
     stage('Fluffy Build') {
       steps {
@@ -8,57 +15,6 @@ pipeline {
           archiveArtifacts '**/*.jar'
         }
 
-      }
-    }
-
-    stage('Fluffy Test') {
-      parallel {
-        stage('Fluffy Test') {
-          steps {
-            dir(path: '/home/ec2-user/my-app/target/') {
-              junit 'surefire-reports/**/*.xml'
-            }
-
-          }
-        }
-
-        stage('Backend') {
-          steps {
-            echo 'HAI DAWN'
-            dir(path: '/home/ec2-user/my-app/target') {
-              archiveArtifacts '**/*.jar'
-            }
-
-          }
-        }
-
-        stage('Frontend') {
-          steps {
-            echo 'HAI BUDDY'
-          }
-        }
-
-        stage('Performance') {
-          steps {
-            dir(path: '/home/ec2-user/my-app/target/') {
-              junit 'surefire-reports/**/*.xml'
-            }
-
-          }
-        }
-
-        stage('Static') {
-          steps {
-            echo 'BYE'
-          }
-        }
-
-      }
-    }
-
-    stage('Fluffy Deploy') {
-      steps {
-        sh 'sh /home/ec2-user/python/deploy.sh'
       }
     }
 
