@@ -1,7 +1,7 @@
 pipeline {
   agent {
     dockerfile {
-      filename 'Dockerfile'
+      filename '/home/ec2-user/Dockerfile'
     }
 
   }
