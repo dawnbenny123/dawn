@@ -1,9 +1,12 @@
 pipeline {
   agent none
   stages {
-    stage('Build') {
+    stage('BUZZ Build') {
       agent {
-        label 'bzzzmaven'
+        node {
+          label 'java7'
+        }
+
       }
       steps {
         echo HAI
