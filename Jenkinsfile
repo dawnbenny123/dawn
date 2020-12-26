@@ -1,5 +1,10 @@
 pipeline {
-  agent none
+  agent {
+    node {
+      label 'java7'
+    }
+
+  }
   stages {
     stage('Build Java 7') {
       steps {
