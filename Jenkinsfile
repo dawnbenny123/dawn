@@ -18,6 +18,12 @@ pipeline {
     }
 
     stage('Fluffy Test') {
+      agent {
+        node {
+          label 'java7'
+        }
+
+      }
       steps {
         echo 'Completed Testing'
         dir(path: '/home/ec2-user/my-app') {
