@@ -4,7 +4,7 @@ pipeline {
     stage('BUZZ Build') {
       agent {
         node {
-          label jdk7
+          label 'java7'
         }
 
       }
