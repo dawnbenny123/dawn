@@ -1,15 +1,12 @@
 pipeline {
   agent none
   stages {
-    stage('BUZZ Build') {
-      agent {
-        node {
-          label 'java7'
+    stage('Build Java 7') {
+      steps {
+        dir(path: '/home/ec2-user/my-app') {
+          stash(name: 'Buzz Java 7', includes: 'target/**')
         }
 
-      }
-      steps {
-        echo DAWN
       }
     }
 
