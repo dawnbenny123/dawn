@@ -28,5 +28,11 @@ pipeline {
       }
     }
 
+    stage('Confirm Deploy to Staging') {
+      steps {
+        input(message: 'Do you want to deploy to staging?', ok: 'Yes', submitter: 'dawn')
+      }
+    }
+
   }
 }
