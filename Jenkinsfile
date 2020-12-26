@@ -15,7 +15,7 @@ pipeline {
 
     stage('Deploy') {
       agent {
-        label 'bzzzproduction'
+        label 'jdk7'
       }
       steps {
         echo DEPLOYED
