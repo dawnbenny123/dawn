@@ -13,14 +13,5 @@ pipeline {
       }
     }
 
-    stage('Deploy') {
-      agent {
-        label 'jdk7'
-      }
-      steps {
-        echo DEPLOYED
-      }
-    }
-
   }
 }
