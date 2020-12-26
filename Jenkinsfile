@@ -15,5 +15,11 @@ pipeline {
       }
     }
 
+    stage('Testing A') {
+      steps {
+        unstash 'Buzz Java 7'
+      }
+    }
+
   }
 }
